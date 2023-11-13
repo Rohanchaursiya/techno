@@ -15,7 +15,7 @@ class _Quiz_pageState extends State<Quiz_page> {
         child: Container(
           color: Colors.blue.shade100,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 height: 100,
@@ -24,6 +24,15 @@ class _Quiz_pageState extends State<Quiz_page> {
                   children: [
                     Container(
                       child: Text("Hi Jhon",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
+
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(20),),
+                      ),
                     ),
                   ],
                 ),
