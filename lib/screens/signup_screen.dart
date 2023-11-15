@@ -44,30 +44,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    reusableTextField("Enter UserName", Icons.person_outline, false,
-                        _userNameTextController),
+                    reusableTextField("Enter UserName", Icons.person_outline, false, _userNameTextController),
                     const SizedBox(
                       height: 20,
                     ),
-                    reusableTextField("Enter Email Id", Icons.person_outline, false,
-                        _emailTextController),
+                    reusableTextField("Enter Email Id", Icons.person_outline, false, _emailTextController),
                     const SizedBox(
                       height: 20,
                     ),
-                    reusableTextField("Enter Password", Icons.lock_outlined, true,
-                        _passwordTextController),
+                    reusableTextField("Enter Password", Icons.lock_outlined, true, _passwordTextController),
                     const SizedBox(
                       height: 20,
                     ),
                     firebaseUIButton(context, "Sign Up", () {
-                      FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
+                      FirebaseAuth.instance.createUserWithEmailAndPassword(
                           email: _emailTextController.text,
-                          password: _passwordTextController.text)
-                          .then((value) {
+                          password: _passwordTextController.text).then((value) {
                         print("Created New Account");
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                       }).onError((error, stackTrace) {
                         print("Error ${error.toString()}");
                       });

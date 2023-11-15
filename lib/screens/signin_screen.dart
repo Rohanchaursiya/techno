@@ -18,6 +18,7 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController _emailTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -35,30 +36,25 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               children: <Widget>[
                 logoWidget("assets/images/logo1.png"),
-                const SizedBox(
+                 SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter UserName", Icons.person_outline, false,
-                    _emailTextController),
-                const SizedBox(
+                reusableTextField("Enter Email Id", Icons.person_outline, false, _emailTextController),
+                 SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter Password", Icons.lock_outline, true,
-                    _passwordTextController),
-                const SizedBox(
+                reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
+                 SizedBox(
                   height: 5,
                 ),
                 forgetPassword(context),
                 firebaseUIButton(context, "Sign In", () {
-                  FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
+                  FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: _emailTextController.text,
-                      password: _passwordTextController.text)
-                      .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                      password: _passwordTextController.text).then((value) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                   }).onError((error, stackTrace) {
-                    print("Error ${error.toString()}");
+                    print("Error");
                   });
                 }),
                 signUpOption()
@@ -89,6 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ],
     );
   }
+  // Email Verification
 
   Widget forgetPassword(BuildContext context) {
     return Container(
@@ -101,8 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
           style: TextStyle(color: Colors.white70),
           textAlign: TextAlign.right,
         ),
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ResetPassword())),
+        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPassword())),
       ),
     );
   }

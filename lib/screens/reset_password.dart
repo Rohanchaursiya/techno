@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:techno/reusable_widgets/reusable_widget.dart';
-import 'package:techno/screens/home_screen.dart';
 import 'package:techno/utils/color_utils.dart';
 import 'package:flutter/material.dart';
 
